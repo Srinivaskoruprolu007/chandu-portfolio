@@ -1,10 +1,13 @@
 import { useState } from "react";
 import Footer from "./components/layout/Footer";
+import Header from "./components/layout/Header";
+
 
 function App() {
   const [count, setCount] = useState(0);
   return (
     <>
+    <Header />
       <div className="flex items-center justify-center min-h-screen bg-gray-100">
         <div className="bg-white p-8 rounded shadow-md w-full max-w-sm">
           <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>

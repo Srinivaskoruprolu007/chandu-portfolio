@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
 export default {
     darkMode: ["class"],
     content: [
@@ -53,7 +54,10 @@ export default {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			}
-  		}
+  		},
+		fontFamily:{
+			 'manrova': ['Manrova', ...defaultTheme.fontFamily.sans],
+		}
   	}
   },
   plugins: [require("tailwindcss-animate")],

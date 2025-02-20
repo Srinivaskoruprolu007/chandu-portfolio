@@ -1,6 +1,6 @@
 import { works, footerNavLinks } from "../../data/works";
 import icon from "../../assets/Icon.png";
-import linkedIn from "../../assets/linkedIn.png";
+import linkedIn from "../../assets/linkedin.png";
 import twitter from "../../assets/twitter.png";
 import facebook from "../../assets/facebook.png";
 import { MoveUpRight } from "lucide-react";

@@ -34,7 +34,7 @@ const Header = () => {
   }, [showMenu]);
 
   return (
-    <div className="flex flex-col md:flex-row justify-between items-center px-4 bg-black text-white h-16 relative w-full max-w-screen overflow-hidden">
+    <div className="flex flex-col md:flex-row justify-between items-center px-4 bg-black text-white h-16 relative w-full max-w-screen">
       {/* Logo and Mobile Menu Button */}
       <div className="flex justify-between w-full md:w-auto">
         <div className="logo mb-4 md:mb-0 ml-4 md:ml-0 md:mr-auto flex justify-start">
@@ -92,3 +92,5 @@ const Header = () => {
 };
 
 export default Header;
+
+ 

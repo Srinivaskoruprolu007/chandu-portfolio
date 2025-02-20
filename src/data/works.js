@@ -23,23 +23,24 @@ export const footerNavLinks = [
 
         ]
     },
-    {
-        label: "Portfolio",
-        links: [
-            {
-                label:"Product",
-                href: "#"
-            },
-            {
-                label:"Portrait",
-                href: "#"
-            },
-            {
-                label:"Landscape",
-                href: "#"
-            }
-        ]
-    },
+    // removed this unwanted section in footerNavigation links
+    // {
+    //     label: "Portfolio",
+    //     links: [
+    //         {
+    //             label:"Product",
+    //             href: "#"
+    //         },
+    //         {
+    //             label:"Portrait",
+    //             href: "#"
+    //         },
+    //         {
+    //             label:"Landscape",
+    //             href: "#"
+    //         }
+    //     ]
+    // },
     {
         label: "Services",
         links: [

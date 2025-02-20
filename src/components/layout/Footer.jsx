@@ -7,7 +7,7 @@ import { MoveUpRight } from "lucide-react";
 
 const Footer = () => {
   return (
-    <div className="flex flex-col items-centert mt-6 bg-black text-white">
+    <div className="flex flex-col items-centert mt-6 bg-black text-white font-manrova">
       <div className="flex justify-center items-center ">
         {works.map((work, index) => (
           <div key={index} className="flex items-center m-2">

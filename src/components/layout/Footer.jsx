@@ -39,7 +39,8 @@ const Footer = () => {
           ))}
         </CarouselContent>
       </Carousel>
-      <div className="flex flex-col items-center mt-4 text-center px-4">
+      {/* fixed the footer layout for mobile and desktop */}
+      <div className="flex flex-col md:flex-row items-center mt-4 text-center px-4">
         <div className="py-10 flex flex-col items-center gap-4 max-w-3xl">
           <p className="text-gray-500 font-semibold text-xl uppercase">
             A more meaningful home for photography & video editing

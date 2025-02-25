@@ -14,13 +14,7 @@ import {
 } from "@/components/ui/carousel";
 
 // added social links for footer
-const socialLinks = {
-  linkedIn:
-    "https://www.linkedin.com/in/chandra-sekhar-kilaparthi-b894a024a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-  twitter: "https://x.com/chandu9k?s=21",
-  instagram:
-    "https://www.instagram.com/chandu.kilaparthi?igsh=MXRrNXNvemhxNGxuOQ%3D%3D&utm_source=qr",
-};
+import { socialLinks } from "../../data/works";
 
 const Footer = () => {
   const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));

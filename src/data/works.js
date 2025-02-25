@@ -14,11 +14,11 @@ export const footerNavLinks = [
     links: [
       {
         label: "About Me",
-        href: "#",
+        href: "/about",
       },
       {
         label: "My Works",
-        href: "#",
+        href: "/portfolio",
       },
       {
         label: "Testimonials",

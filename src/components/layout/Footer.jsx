@@ -7,6 +7,7 @@ import { MoveUpRight } from "lucide-react";
 import { Button } from "../ui/button";
 import { useRef } from "react";
 import Autoplay from "embla-carousel-autoplay";
+
 import {
   Carousel,
   CarouselContent,
@@ -15,9 +16,11 @@ import {
 
 // added social links for footer
 import { socialLinks } from "../../data/works";
+import { Link, useNavigate } from "react-router-dom";
 
 const Footer = () => {
   const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col items-center  bg-black text-white font-manrova w-full px-4 md:px-8">
       <Carousel
@@ -43,7 +46,7 @@ const Footer = () => {
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-2 mt-6">
             <p className="text-white text-4xl uppercase">Let’s</p>
-            <Button className="bg-[#4A2CED] rounded-full py-4 px-8 shadow-lg">
+            <Button onClick = {() => navigate('/contact')} className="bg-[#4A2CED] rounded-full py-4 px-8 shadow-lg">
               <MoveUpRight size={32} />
             </Button>
           </div>
@@ -52,20 +55,20 @@ const Footer = () => {
         <div className="flex flex-wrap justify-center items-center gap-10 w-full max-w-4xl">
           {footerNavLinks.map((link, index) => (
             <div className="flex flex-col items-center gap-4" key={index}>
-              <a
-                href="#"
+              <Link
+                to = "/"
                 className="px-4 text-gray-500 hover:text-white transition duration-300 ease-in-out uppercase"
               >
                 {link.label}
-              </a>
+              </Link>
               {link.links.map((subLink, subIndex) => (
-                <a
-                  href="#"
+                <Link
+                  to={subLink.href}
                   key={subIndex}
                   className="text-white uppercase text-sm"
                 >
                   {subLink.label}
-                </a>
+                </Link>
               ))}
             </div>
           ))}

@@ -5,19 +5,25 @@ import img3 from "/src/assets/FullSizeRender2.jpg";
 import img4 from "/src/assets/FullSizeRender3.jpg";
 import img5 from "/src/assets/FullSizeRender4.jpg";
 
-import "../../styles/Hero.css";
+import "../styles/Hero.css";
 
-import { works } from "../../data/works";
-import icon from "../../assets/Icon.png";
-import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
+import { works } from "../data/works";
+import icon from "../assets/Icon.png";
+import { Carousel, CarouselContent, CarouselItem } from "../components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import { Button } from "../ui/button";
+import { Button } from "../components/ui/button";
 import { MoveUpRight } from "lucide-react";
+import About from "../components/layout/About";
+import Uiux from "../components/layout/Uiux";
+import Portfolio from "../components/layout/Portfolio";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
   const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
+  const navigate = useNavigate();
 
   return (
+    <>
     <div className="w-full overflow-hidden bg-black text-white">
       {/* Works Section */}
       <div className="flex flex-col sm:flex-row items-center justify-between py-8 px-6 sm:px-12 max-w-screen-xl mx-auto">
@@ -30,7 +36,7 @@ const Hero = () => {
         <div className="mt-6 sm:mt-0 text-center sm:text-left">
           <div className="flex flex-col sm:flex-row items-center gap-3">
             <p className="text-2xl sm:text-4xl uppercase">Let's</p>
-            <Button className="bg-[#4A2CED] rounded-full p-4 shadow-lg">
+            <Button onClick = {() => navigate('/contact')} className="bg-[#4A2CED] rounded-full p-4 shadow-lg">
               <MoveUpRight size={28} />
             </Button>
           </div>
@@ -150,6 +156,10 @@ const Hero = () => {
         </div>
       </div>
     </div>
+    <About />
+    <Uiux/>
+    <Portfolio/>
+    </>
   );
 };
 

@@ -2,7 +2,7 @@ import { works, footerNavLinks } from "../../data/works";
 import icon from "../../assets/Icon.png";
 import linkedIn from "../../assets/linkedin.png";
 import twitter from "../../assets/twitter.png";
-import facebook from "../../assets/facebook.png";
+import instagram from "../../assets/Instagram.png";
 import { MoveUpRight } from "lucide-react";
 import { Button } from "../ui/button";
 import { useRef } from "react";
@@ -12,6 +12,9 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+
+// added social links for footer
+import { socialLinks } from "../../data/works";
 
 const Footer = () => {
   const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
@@ -73,12 +76,23 @@ const Footer = () => {
           Terms & Conditions | Privacy Policy
         </p>
         <div className="flex items-center gap-4 border rounded-full border-gray-700 p-1">
-          {[linkedIn, twitter, facebook].map((social, index) => (
+          {[linkedIn, twitter, instagram].map((social, index) => (
             <div
               key={index}
               className="rounded-full p-2 bg-gray-900  border border-gray-700 shadow-xl"
             >
-              <img src={social} alt="social" className="w-6 h-6" />
+              <a
+                href={
+                  social === instagram
+                    ? socialLinks.instagram
+                    : social === linkedIn
+                    ? socialLinks.linkedIn
+                    : socialLinks.twitter
+                }
+                target="_blank"
+              >
+                <img src={social} alt="social" className="w-6 h-6" />
+              </a>
             </div>
           ))}
         </div>

@@ -16,7 +16,7 @@ import {
 const Footer = () => {
   const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
   return (
-    <div className="flex flex-col items-center mt-6 bg-black text-white font-manrova w-full px-4 md:px-8">
+    <div className="flex flex-col items-center  bg-black text-white font-manrova w-full px-4 md:px-8">
       <Carousel
         plugins={[plugin.current]}
         className="flex justify-center items-center border-b w-full"
@@ -72,11 +72,11 @@ const Footer = () => {
         <p className="text-sm text-center md:text-left">
           Terms & Conditions | Privacy Policy
         </p>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 border rounded-full border-gray-700 p-1">
           {[linkedIn, twitter, facebook].map((social, index) => (
             <div
               key={index}
-              className="rounded-full p-2 border border-gray-700 shadow-xl"
+              className="rounded-full p-2 bg-gray-900  border border-gray-700 shadow-xl"
             >
               <img src={social} alt="social" className="w-6 h-6" />
             </div>

@@ -65,13 +65,13 @@ const Header = () => {
             className={`p-2 text-white text-center px-8 hover:bg-gray-800 transition duration-300 
               ${index === 0 ? "first:rounded-l-lg" : ""} 
               ${index === navItems.slice(0, 3).length - 1 ? "last:rounded-r-lg" : ""}`}
-            href="#"
-          >
+            href="#" 
+          >                                              
             {item}
           </a>
-        ))}
+        ))}   
       </div>
-
+  
       {/* Contact Me Button (Desktop) */}
       <div className="hidden md:block p-2 rounded hover:bg-gray-800 hover:border hover:border-gray-500">
         <h2>{navItems[3]}</h2>

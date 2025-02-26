@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { MoveUpRight } from "lucide-react";
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 const Contactpage = () => {
   const [formData, setFormData] = useState({
@@ -24,15 +25,32 @@ const Contactpage = () => {
     console.log("Form submitted:", formData);
   };
 
+  const formVariants = {
+    hidden: { opacity: 0, x: -50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: "spring",
+        duration: 0.8,
+      },
+    },
+  };
+
   return (
     <div>
       {/* Contact Info Section */}
-      <div className="flex flex-col sm:flex-row justify-start items-center bg-black text-white p-6 sm:p-12 gap-6 sm:gap-12">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="flex flex-col sm:flex-row justify-start items-center bg-black dark:bg-white text-white dark:text-black p-6 sm:p-12 gap-6 sm:gap-12"
+      >
         <div className="text-center sm:text-left">
-          <h1 className="text-gray-600 font-bold text-xl sm:text-2xl">
+          <h1 className="text-gray-600 dark:text-gray-500 font-bold text-xl sm:text-2xl">
             CONTACT INFORMATION
           </h1>
-          <p className="text-sm sm:text-base mt-2">
+          <p className="text-sm sm:text-base mt-2 text-gray-300 dark:text-gray-700">
             Feel free to reach out to us through various channels.
             <br /> We are available by phone, email, and social media for your
             convenience.
@@ -41,26 +59,31 @@ const Contactpage = () => {
         <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-12 text-sm sm:text-base">
           <a
             href="tel:+919640366123"
-            className="flex items-center gap-2 underline underline-offset-4 decoration-gray-700"
+            className="flex items-center gap-2 underline underline-offset-4 decoration-gray-700 dark:decoration-gray-400 hover:text-gray-300 dark:hover:text-gray-600 transition-colors"
           >
             +91 9640366123 <MoveUpRight size={18} />
           </a>
           <a
             href="mailto:chandu9kilaparthi@gmail.com"
-            className="flex items-center gap-2 underline underline-offset-4 decoration-gray-700"
+            className="flex items-center gap-2 underline underline-offset-4 decoration-gray-700 dark:decoration-gray-400 hover:text-gray-300 dark:hover:text-gray-600 transition-colors"
           >
             chandu9kilaparthi@gmail.com <MoveUpRight size={18} />
           </a>
         </div>
-      </div>
+      </motion.div>
 
       {/* Contact Form Section */}
-      <div className="flex flex-col sm:flex-row justify-between items-start bg-black text-white p-6 sm:p-12 gap-6 sm:gap-12">
+      <motion.div
+        variants={formVariants}
+        initial="hidden"
+        animate="visible"
+        className="flex flex-col sm:flex-row justify-between items-start bg-black dark:bg-white text-white dark:text-black p-6 sm:p-12 gap-6 sm:gap-12"
+      >
         <div className="w-full sm:w-1/2 text-left">
-          <h2 className="text-gray-600 font-bold text-2xl sm:text-3xl">
+          <h2 className="text-gray-600 dark:text-gray-500 font-bold text-2xl sm:text-3xl">
             SEND ME A MESSAGE
           </h2>
-          <p className="mt-2 text-sm sm:text-base">
+          <p className="mt-2 text-sm sm:text-base text-gray-300 dark:text-gray-700">
             Have a specific inquiry or message for us?
             <br /> Please use the contact form below, and we'll get back to you
             promptly.
@@ -70,8 +93,11 @@ const Contactpage = () => {
           <form className="flex flex-col gap-4 mt-4" onSubmit={handleSubmit}>
             {/* First & Last Name */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="relative border-b border-gray-600">
-                <label htmlFor="firstName" className="text-white text-sm">
+              <div className="relative border-b border-gray-600 dark:border-gray-400">
+                <label
+                  htmlFor="firstName"
+                  className="text-white dark:text-black text-sm"
+                >
                   First Name
                 </label>
                 <input
@@ -81,12 +107,15 @@ const Contactpage = () => {
                   value={formData.firstName}
                   onChange={handleChange}
                   placeholder="FIRST NAME"
-                  className="w-full bg-transparent text-white p-2 outline-none h-16 focus:ring-2 focus:ring-blue-600"
+                  className="w-full bg-transparent text-white dark:text-black p-2 outline-none h-16 focus:ring-2 focus:ring-[#4A2CED] dark:focus:ring-[#6B4EF7] placeholder:text-gray-500"
                   required
                 />
               </div>
-              <div className="relative border-b border-gray-600">
-                <label htmlFor="lastName" className="text-white text-sm">
+              <div className="relative border-b border-gray-600 dark:border-gray-400">
+                <label
+                  htmlFor="lastName"
+                  className="text-white dark:text-black text-sm"
+                >
                   Last Name
                 </label>
                 <input
@@ -96,15 +125,18 @@ const Contactpage = () => {
                   value={formData.lastName}
                   onChange={handleChange}
                   placeholder="LAST NAME"
-                  className="w-full bg-transparent text-white p-2 outline-none h-16 focus:ring-2 focus:ring-blue-600"
+                  className="w-full bg-transparent text-white dark:text-black p-2 outline-none h-16 focus:ring-2 focus:ring-[#4A2CED] dark:focus:ring-[#6B4EF7] placeholder:text-gray-500"
                 />
               </div>
             </div>
 
             {/* Email & Phone */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="relative border-b border-gray-600">
-                <label htmlFor="email" className="text-white text-sm">
+              <div className="relative border-b border-gray-600 dark:border-gray-400">
+                <label
+                  htmlFor="email"
+                  className="text-white dark:text-black text-sm"
+                >
                   Email Address
                 </label>
                 <input
@@ -114,12 +146,15 @@ const Contactpage = () => {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="EMAIL ADDRESS"
-                  className="w-full bg-transparent text-white p-2 outline-none h-16 focus:ring-2 focus:ring-blue-600"
+                  className="w-full bg-transparent text-white dark:text-black p-2 outline-none h-16 focus:ring-2 focus:ring-[#4A2CED] dark:focus:ring-[#6B4EF7] placeholder:text-gray-500"
                   required
                 />
               </div>
-              <div className="relative border-b border-gray-600">
-                <label htmlFor="phone" className="text-white text-sm">
+              <div className="relative border-b border-gray-600 dark:border-gray-400">
+                <label
+                  htmlFor="phone"
+                  className="text-white dark:text-black text-sm"
+                >
                   Phone Number
                 </label>
                 <input
@@ -129,14 +164,17 @@ const Contactpage = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="PHONE NUMBER"
-                  className="w-full bg-transparent text-white p-2 outline-none h-16 focus:ring-2 focus:ring-blue-600"
+                  className="w-full bg-transparent text-white dark:text-black p-2 outline-none h-16 focus:ring-2 focus:ring-[#4A2CED] dark:focus:ring-[#6B4EF7] placeholder:text-gray-500"
                 />
               </div>
             </div>
 
             {/* Message */}
-            <div className="relative border-b border-gray-600">
-              <label htmlFor="message" className="text-white text-sm">
+            <div className="relative border-b border-gray-600 dark:border-gray-400">
+              <label
+                htmlFor="message"
+                className="text-white dark:text-black text-sm"
+              >
                 Your Message
               </label>
               <textarea
@@ -145,23 +183,26 @@ const Contactpage = () => {
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="MESSAGE"
-                className="w-full bg-transparent text-white p-2 outline-none h-20 focus:ring-2 focus:ring-blue-600"
+                className="w-full bg-transparent text-white dark:text-black p-2 outline-none h-20 focus:ring-2 focus:ring-[#4A2CED] dark:focus:ring-[#6B4EF7] placeholder:text-gray-500"
+                required
               ></textarea>
             </div>
 
             {/* Submit Button */}
             <div className="flex justify-center sm:justify-start mt-6">
-              <Button
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 type="submit"
-                className="bg-[#4A2CED] rounded-full text-center px-10 py-5 shadow-lg flex items-center gap-2 text-white uppercase text-lg"
+                className="bg-[#4A2CED] dark:bg-[#6B4EF7] rounded-full text-center px-10 py-5 shadow-lg flex items-center gap-2 text-white uppercase text-lg hover:bg-[#3920B5] dark:hover:bg-[#5437D6] transition-colors"
                 aria-label="Send Message"
               >
-                Send Message <MoveUpRight size={24} />
-              </Button>
+                Send Message <MoveUpRight size={24} className="text-white" />
+              </motion.button>
             </div>
           </form>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

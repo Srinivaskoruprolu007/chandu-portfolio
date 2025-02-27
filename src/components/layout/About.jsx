@@ -8,7 +8,7 @@ import { socialLinks } from "../../data/works";
 
 const About = () => {
   return (
-    <div className="p-6 sm:p-12 bg-black dark:bg-white text-white dark:text-black min-h-screen flex flex-col justify-center">
+    <div className="p-6 sm:p-12 bg-black dark:bg-white text-white dark:text-black min-h-screen flex flex-col justify-center border-t border-gray-800 dark:border-gray-200">
       <h1 className="text-xl text-gray-500 dark:text-gray-600">About</h1>
 
       {/* Header Section */}
@@ -29,13 +29,13 @@ const About = () => {
           <img
             src={img1}
             alt="Chandu Photography"
-            className="rounded-md border border-gray-600 dark:border-gray-400 max-w-xs sm:max-w-lg lg:max-w-lg object-cover"
+            className="rounded-md border-2 border-gray-700 dark:border-gray-300 max-w-xs sm:max-w-lg lg:max-w-lg object-cover hover:border-[#4A2CED] dark:hover:border-[#6B4EF7] transition-colors"
           />
         </div>
 
         {/* Right Side - Text Content */}
         <div className="flex flex-col gap-6">
-          <div className="p-4 bg-black dark:bg-white border border-gray-800 dark:border-gray-300 rounded-md">
+          <div className="p-4 bg-black dark:bg-white border-2 border-gray-800 dark:border-gray-300 rounded-md hover:border-[#4A2CED] dark:hover:border-[#6B4EF7] transition-all">
             <h2 className="text-2xl font-bold">Introduction</h2>
             <p className="text-sm sm:text-base leading-relaxed text-gray-300 dark:text-gray-700">
               Hi there! I'm Kilaparthi Chandra Sekhar, a passionate and budding
@@ -52,7 +52,7 @@ const About = () => {
             </p>
           </div>
 
-          <div className="p-4 bg-black dark:bg-white border border-gray-800 dark:border-gray-300 rounded-md">
+          <div className="p-4 bg-black dark:bg-white border-2 border-gray-800 dark:border-gray-300 rounded-md hover:border-[#4A2CED] dark:hover:border-[#6B4EF7] transition-all">
             <h2 className="text-2xl font-bold">Contact Information</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>

@@ -54,6 +54,7 @@ export default {
       },
       fontFamily: {
         manrova: ["Manrova", ...defaultTheme.fontFamily.sans],
+        manrope: ["Manrope", "sans-serif"],
       },
       screens: {
         laptop: "1280px",

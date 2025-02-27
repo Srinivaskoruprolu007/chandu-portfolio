@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { MoveUpRight } from "lucide-react";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-
+import Subcontainer from "../components/Subcontainer";
 const Contactpage = () => {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -39,6 +39,7 @@ const Contactpage = () => {
 
   return (
     <div>
+      <Subcontainer />
       {/* Contact Info Section */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}

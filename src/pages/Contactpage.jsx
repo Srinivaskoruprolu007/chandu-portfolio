@@ -1,7 +1,8 @@
-import { Button } from "@/components/ui/button";
 import { MoveUpRight } from "lucide-react";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import Subcontainer from "../components/Subcontainer";
+import toast, { Toaster } from "react-hot-toast";
 
 const Contactpage = () => {
   const [formData, setFormData] = useState({
@@ -16,13 +17,53 @@ const Contactpage = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.firstName || !formData.email || !formData.message) {
-      alert("Please fill in required fields!");
+      toast.error("Please fill in required fields!", {
+        duration: 3000,
+        position: "bottom-right",
+      });
       return;
     }
-    console.log("Form submitted:", formData);
+
+    const loadingToast = toast.loading("Sending message...", {
+      position: "bottom-right",
+    });
+
+    try {
+      const response = await fetch("https://formspree.io/f/mzzdnbvd", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        toast.success("Message sent successfully!", {
+          id: loadingToast,
+          duration: 3000,
+        });
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          message: "",
+        });
+      } else {
+        toast.error("Failed to send message. Please try again.", {
+          id: loadingToast,
+          duration: 3000,
+        });
+      }
+    } catch (error) {
+      toast.error("An error occurred. Please try again later.", {
+        id: loadingToast,
+        duration: 3000,
+      });
+    }
   };
 
   const formVariants = {
@@ -39,6 +80,27 @@ const Contactpage = () => {
 
   return (
     <div>
+      <Toaster
+        position="bottom-right"
+        toastOptions={{
+          duration: 3000,
+          style: {
+            background: "#333",
+            color: "#fff",
+          },
+          success: {
+            style: {
+              background: "green",
+            },
+          },
+          error: {
+            style: {
+              background: "red",
+            },
+          },
+        }}
+      />
+      <Subcontainer />
       {/* Contact Info Section */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}

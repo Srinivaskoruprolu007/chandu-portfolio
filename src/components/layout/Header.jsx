@@ -48,7 +48,7 @@ const Header = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", duration: 0.5 }}
-      className="sticky top-0 z-50 flex flex-col md:flex-row justify-between items-center px-4 bg-black dark:bg-white text-white dark:text-black h-16 max-w-screen"
+      className="sticky top-0 z-50 flex flex-col md:flex-row justify-between items-center px-4 bg-black dark:bg-white text-white dark:text-black h-16 max-w-screen border-b border-gray-800 dark:border-gray-200"
     >
       {/* Logo and Mobile Menu Button */}
       <div className="flex justify-between w-full md:w-auto">

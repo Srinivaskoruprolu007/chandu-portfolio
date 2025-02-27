@@ -1,6 +1,7 @@
 import { MoveUpRight } from "lucide-react";
 import React from "react";
 import { Button } from "../ui/button";
+import figma from "../../assets/UIUX.png";
 
 const Uiux = () => {
   return (
@@ -15,23 +16,30 @@ const Uiux = () => {
         </Button>
       </div>
 
-      {/* Description Text */}
-      <div className="mt-6 max-w-6xl text-sm sm:text-base leading-relaxed text-gray-300 dark:text-gray-700">
-        <p>
-          As a UI/UX designer, I use Figma to create user-friendly and visually
-          appealing designs. My process begins with research and wireframing,
-          followed by building interactive prototypes to test user flows.
-        </p>
-        <p className="mt-4">
-          Figma allows me to collaborate in real-time with team members and
-          clients, ensuring constant feedback and smooth iteration. I also use
-          Figma's design system features to create reusable components, which
-          helps maintain consistency across the project.
-        </p>
-        <p className="mt-4">
-          Through Figma, I'm able to streamline my design process from concept
-          to delivery, always keeping the user's needs at the forefront.
-        </p>
+      <div className="flex flex-col sm:flex-row items-center justify-between w-full gap-4">
+        {/* Description Text */}
+        <div className="mt-6 max-w-6xl flex  justify-start flex-col text-sm sm:text-base leading-relaxed text-gray-300 dark:text-gray-700">
+          <p>
+            As a UI/UX designer, I use Figma to create user-friendly and
+            visually appealing designs. My process begins with research and
+            wireframing, followed by building interactive prototypes to test
+            user flows.
+          </p>
+          <p className="mt-4">
+            Figma allows me to collaborate in real-time with team members and
+            clients, ensuring constant feedback and smooth iteration. I also use
+            Figma's design system features to create reusable components, which
+            helps maintain consistency across the project.
+          </p>
+          <p className="mt-4">
+            Through Figma, I'm able to streamline my design process from concept
+            to delivery, always keeping the user's needs at the forefront.
+          </p>
+        </div>
+        {/* image */}
+        <div className="mt-6 w-full">
+          <img src={figma} alt="Figma" className="w-full h-auto" />
+        </div>
       </div>
     </div>
   );

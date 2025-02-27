@@ -41,7 +41,7 @@ const Portfolio = () => {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className="p-6 sm:p-12 bg-black dark:bg-white text-white dark:text-black"
+      className="p-6 sm:p-12 bg-black dark:bg-white text-white dark:text-black border-t border-gray-800 dark:border-gray-200"
     >
       <h1 className="text-xl text-gray-500 dark:text-gray-600">Portfolio</h1>
 
@@ -91,7 +91,7 @@ const Portfolio = () => {
             key={index}
             variants={cardVariants}
             whileHover={{ scale: 1.03 }}
-            className="relative bg-gray-900 dark:bg-gray-100 rounded-lg border border-gray-700 dark:border-gray-300 shadow-lg overflow-hidden"
+            className="relative bg-gray-900 dark:bg-gray-100 rounded-lg border-2 border-gray-700 dark:border-gray-300 shadow-lg overflow-hidden hover:border-[#4A2CED] dark:hover:border-[#6B4EF7] transition-all"
           >
             <img
               src={category.image}

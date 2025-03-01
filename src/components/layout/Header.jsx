@@ -18,6 +18,7 @@ const Header = () => {
     { name: "Portfolio", link: "/portfolio" },
     { name: "Contact", link: "/contact" },
   ];
+
   // ✅ Close mobile menu when switching to desktop view
   useEffect(() => {
     const handleResize = () => {
@@ -28,24 +29,6 @@ const Header = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // ✅ Close mobile menu when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (
-        !event.target.closest(".mobile-menu") &&
-        !event.target.closest(".menu-button")
-      ) {
-        setShowMenu(false);
-      }
-    };
-
-    if (showMenu) {
-      document.addEventListener("click", handleClickOutside);
-    }
-
-    return () => document.removeEventListener("click", handleClickOutside);
-  }, [showMenu]);
-
   return (
     <motion.div
       initial={{ y: -100 }}
@@ -54,11 +37,8 @@ const Header = () => {
       className="sticky top-0 z-50 flex flex-col md:flex-row justify-between items-center px-4 bg-black dark:bg-white text-white dark:text-black h-16 max-w-screen border-b border-gray-800 dark:border-gray-200"
     >
       {/* Logo and Mobile Menu Button */}
-      <div className="flex justify-between w-full md:w-auto">
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          className="mb-4 md:mb-0 ml-4 md:ml-0 md:mr-auto flex justify-start"
-        >
+      <div className="flex justify-between w-full md:w-auto items-center">
+        <motion.div whileHover={{ scale: 1.05 }} className="ml-4 md:ml-0 md:mr-auto">
           <NavLink to="/" className="hover:scale-105">
             {theme === "dark" ? (
               <img
@@ -75,20 +55,37 @@ const Header = () => {
             )}
           </NavLink>
         </motion.div>
+
         <div className="md:hidden flex items-center gap-2">
           <ThemeToggler />
           <button className="outline-none menu-button" onClick={toggleMenu}>
-            <svg
-              className="w-6 h-6 text-white dark:text-black"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-            >
-              <path d="M4 6h16M4 12h16m-7 6h7" />
-            </svg>
+            {showMenu ? (
+              // Close Icon (Single X Button)
+              <svg
+                className="w-7 h-7 text-white dark:text-black"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              // Menu Icon
+              <svg
+                className="w-7 h-7 text-white dark:text-black"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M4 6h16M4 12h16m-7 6h7" />
+              </svg>
+            )}
           </button>
         </div>
       </div>
@@ -100,14 +97,10 @@ const Header = () => {
             key={index}
             className={({ isActive }) =>
               isActive
-                ? "bg-gray-800 dark:bg-gray-200 p-2 text-white dark:text-black text-center px-8"
-                : `p-2 text-white dark:text-black text-center px-8 hover:bg-gray-800 dark:hover:bg-gray-200 transition duration-300 
+                ? "bg-gray-800 dark:bg-gray-200 p-2 text-white dark:text-black text-center px-6"
+                : `p-2 text-white dark:text-black text-center px-6 hover:bg-gray-800 dark:hover:bg-gray-200 transition duration-300 
                   ${index === 0 ? "first:rounded-l-lg" : ""} 
-                  ${
-                    index === navItems.slice(0, 3).length - 1
-                      ? "last:rounded-r-lg"
-                      : ""
-                  }`
+                  ${index === navItems.slice(0, 3).length - 1 ? "last:rounded-r-lg" : ""}`
             }
             to={item.link}
           >
@@ -133,23 +126,29 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Transparent Background */}
       {showMenu && (
-        <div className="mobile-menu flex flex-col items-center space-y-4 bg-black dark:bg-white w-full px-4 py-2 absolute left-0 top-full shadow-lg transition-all duration-300 z-50">
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.3 }}
+          className="mobile-menu flex flex-col items-end space-y-3 backdrop-blur-lg bg-transparent text-white dark:text-black w-48 py-3 px-5 rounded-lg shadow-lg absolute right-4 top-16 z-50"
+        >
           {navItems.map((item, index) => (
             <NavLink
               key={index}
               className={({ isActive }) =>
                 isActive
-                  ? "border bg-gray-800 dark:bg-gray-200 p-2 rounded text-white dark:text-black text-center w-full"
-                  : "border hover:bg-gray-800 dark:hover:bg-gray-200 p-2 rounded text-white dark:text-black text-center w-full"
+                  ? "bg-gray-800 dark:bg-gray-200 py-2 px-4 rounded text-white dark:text-black text-sm w-full text-right"
+                  : "hover:bg-gray-700 dark:hover:bg-gray-300 py-2 px-4 rounded text-white dark:text-black text-sm w-full text-right"
               }
               to={item.link}
+              onClick={() => setShowMenu(false)} // Close menu after click
             >
               {item.name}
             </NavLink>
           ))}
-        </div>
+        </motion.div>
       )}
     </motion.div>
   );

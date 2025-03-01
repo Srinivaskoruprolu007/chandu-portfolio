@@ -1,3 +1,4 @@
+import { imageKit } from "../lib/utils";
 export const works = [
   "PHOTOGRAPHY",
   "VIDEO EDITOR",
@@ -70,3 +71,30 @@ export const socialLinks = {
   instagram:
     "https://www.instagram.com/chandu.kilaparthi?igsh=MXRrNXNvemhxNGxuOQ%3D%3D&utm_source=qr",
 };
+
+export const HeroPageImages = [
+  {
+    id: 1,
+    src: `${imageKit.endpoint}/cp/HeroImage1.JPG`,
+  },
+  {
+    id: 2,
+    src: `${imageKit.endpoint}/cp/HeroImage2.JPG`,
+  },
+  {
+    id: 3,
+    src: `${imageKit.endpoint}/cp/HeroImage3.JPG`,
+  },
+  {
+    id: 4,
+    src: `${imageKit.endpoint}/cp/HeroImage4.jpg`,
+  },
+  {
+    id: 5,
+    src: `${imageKit.endpoint}/cp/HeroImage5.JPG`,
+  },
+  {
+    id: 6,
+    src: `${imageKit.endpoint}/cp/HeroImage6.JPG`,
+  },
+];

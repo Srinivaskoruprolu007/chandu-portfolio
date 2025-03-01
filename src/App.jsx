@@ -7,6 +7,8 @@ import { imageKit } from "./lib/utils";
 import { IKContext } from "imagekitio-react";
 import AboutPage from "./pages/AboutPage";
 import PortfolioPage from "./pages/PortfolioPage";
+import ImageDetailPage from "./pages/ImageDetailPage";
+
 function App() {
   return (
     <IKContext
@@ -21,6 +23,7 @@ function App() {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<Contactpage />} />
               <Route path="/portfolio" element={<PortfolioPage />} />
+              <Route path="/:category" element={<ImageDetailPage />} />
             </Route>
           </Routes>
         </BrowserRouter>

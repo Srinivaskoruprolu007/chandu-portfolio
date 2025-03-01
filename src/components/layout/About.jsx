@@ -1,10 +1,11 @@
 import { MoveRight } from "lucide-react";
 import React from "react";
-import img1 from "/src/assets/HeroImage.jpg";
+import {imageKit} from "@/lib/utils"
 import linkedIn from "../../assets/linkedin.png";
 import twitter from "../../assets/twitter.png";
 import instagram from "../../assets/Instagram.png";
 import { socialLinks } from "../../data/works";
+import { IKImage } from "imagekitio-react";
 
 const About = () => {
   return (
@@ -26,8 +27,8 @@ const About = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
         {/* Image Section */}
         <div className="flex justify-center">
-          <img
-            src={img1}
+          <IKImage
+            src={`${imageKit.endpoint}/cp/HeroImage.jpg`}
             alt="Chandu Photography"
             className="rounded-md border-2 border-gray-700 dark:border-gray-300 max-w-xs sm:max-w-lg lg:max-w-lg object-cover hover:border-[#4A2CED] dark:hover:border-[#6B4EF7] transition-colors"
           />

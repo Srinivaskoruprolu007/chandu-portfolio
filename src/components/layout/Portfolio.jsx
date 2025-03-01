@@ -1,16 +1,14 @@
 import { MoveRight } from "lucide-react";
 import React from "react";
-import img1 from "/src/assets/FullSizeRender.jpg";
-import img2 from "/src/assets/FullSizeRender1.jpg";
-import img3 from "/src/assets/FullSizeRender2.jpg";
 import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { motion } from "framer-motion";
-
+import { HeroPageImages } from "../../data/works";
+import { IKImage } from "imagekitio-react";
 const categories = [
-  { title: "Portrait Photography", image: img1 },
-  { title: "Landscape Photography", image: img2 },
-  { title: "Event Photography", image: img3 },
+  { title: "Portrait Photography", image: HeroPageImages[0].src },
+  { title: "Landscape Photography", image: HeroPageImages[1].src },
+  { title: "Event Photography", image: HeroPageImages[2].src },
 ];
 
 const Portfolio = () => {
@@ -63,10 +61,11 @@ const Portfolio = () => {
             {categories.map((category, index) => (
               <CarouselItem key={index} className="flex-shrink-0 w-full">
                 <div className="relative bg-gray-900 dark:bg-gray-100 rounded-lg border border-gray-700 dark:border-gray-300 shadow-lg overflow-hidden">
-                  <img
+                  <IKImage
                     src={category.image}
                     alt={category.title}
                     className="w-full h-72 object-cover"
+                    loading="lazy"
                   />
                   <div className="absolute bottom-0 left-0 right-0 bg-black/60 dark:bg-white/60 p-4 flex justify-between items-center backdrop-blur-sm">
                     <p className="text-white dark:text-black text-sm font-semibold">

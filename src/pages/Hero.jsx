@@ -1,9 +1,6 @@
 import React, { useRef, lazy, Suspense } from "react";
-import img1 from "/src/assets/FullSizeRender.jpg";
-import img2 from "/src/assets/FullSizeRender1.jpg";
-import img3 from "/src/assets/FullSizeRender2.jpg";
-import img4 from "/src/assets/FullSizeRender3.jpg";
-import img5 from "/src/assets/FullSizeRender4.jpg";
+import { HeroPageImages } from "../data/works";
+import { IKImage } from "imagekitio-react";
 
 import "../styles/Hero.css";
 
@@ -130,7 +127,7 @@ const Hero = () => {
             <motion.img
               whileHover={{ scale: 1.05 }}
               transition={{ type: "tween" }}
-              src={img1}
+              src={HeroPageImages[0].src}
               alt="Left Top"
               className="w-full h-full object-cover rounded-[10px] laptop:rounded-[17px]"
               loading="lazy"
@@ -149,7 +146,7 @@ const Hero = () => {
             <motion.img
               whileHover={{ scale: 1.05 }}
               transition={{ type: "tween" }}
-              src={img2}
+                src={HeroPageImages[1].src}
               alt="Center"
               className="w-full h-full object-cover rounded-[10px] laptop:rounded-[13px]"
               loading="lazy"
@@ -168,7 +165,7 @@ const Hero = () => {
             <motion.img
               whileHover={{ scale: 1.05 }}
               transition={{ type: "tween" }}
-              src={img3}
+              src={HeroPageImages[2].src}
               alt="Center Overlay"
               className="w-full h-full object-cover rounded-[10px] laptop:rounded-[17px]"
               loading="lazy"
@@ -187,7 +184,7 @@ const Hero = () => {
             <motion.img
               whileHover={{ scale: 1.05 }}
               transition={{ type: "tween" }}
-              src={img4}
+              src={HeroPageImages[3].src}
               alt="Right Top"
               className="w-full h-full object-cover rounded-[10px] laptop:rounded-[14px]"
               loading="lazy"
@@ -206,7 +203,7 @@ const Hero = () => {
             <motion.img
               whileHover={{ scale: 1.05 }}
               transition={{ type: "tween" }}
-              src={img5}
+              src={HeroPageImages[4].src}
               alt="Right Bottom"
               className="w-full h-full object-cover rounded-[10px] laptop:rounded-[7px]"
               loading="lazy"
@@ -225,7 +222,7 @@ const Hero = () => {
             <motion.img
               whileHover={{ scale: 1.05 }}
               transition={{ type: "tween" }}
-              src={img1}
+              src={HeroPageImages[5].src}
               alt="Left Bottom"
               className="w-full h-full object-cover rounded-[10px] laptop:rounded-[11px]"
               loading="lazy"

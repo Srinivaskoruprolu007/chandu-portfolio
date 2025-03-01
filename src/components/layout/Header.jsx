@@ -2,12 +2,15 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { ThemeToggler } from "../theme-toggler";
 import { motion } from "framer-motion";
-import logo from "../../assets/logo.svg";
+import DarkIcon from "@/assets/Darklogo.svg";
+import LightIcon from "@/assets/Lightlogo.svg";
+import { useTheme } from "../theme-provider";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
 
   const toggleMenu = () => setShowMenu(!showMenu);
+  const { theme } = useTheme();
 
   const navItems = [
     { name: "Home", link: "/" },
@@ -57,7 +60,19 @@ const Header = () => {
           className="mb-4 md:mb-0 ml-4 md:ml-0 md:mr-auto flex justify-start"
         >
           <NavLink to="/" className="hover:scale-105">
-            <img src={logo} alt="logo" className="size-24 dark:text-white text-black" />
+            {theme === "dark" ? (
+              <img
+                src={LightIcon}
+                alt="Dark Icon"
+                className="size-24 dark:text-white text-black"
+              />
+            ) : (
+              <img
+                src={DarkIcon}
+                alt="Light Icon"
+                className="size-24 dark:text-white text-black"
+              />
+            )}
           </NavLink>
         </motion.div>
         <div className="md:hidden flex items-center gap-2">

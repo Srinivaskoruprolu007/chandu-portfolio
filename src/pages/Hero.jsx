@@ -1,6 +1,5 @@
 import React, { useRef, lazy, Suspense } from "react";
 import { HeroPageImages } from "../data/works";
-import { IKImage } from "imagekitio-react";
 
 import "../styles/Hero.css";
 
@@ -146,7 +145,7 @@ const Hero = () => {
             <motion.img
               whileHover={{ scale: 1.05 }}
               transition={{ type: "tween" }}
-                src={HeroPageImages[1].src}
+              src={HeroPageImages[1].src}
               alt="Center"
               className="w-full h-full object-cover rounded-[10px] laptop:rounded-[13px]"
               loading="lazy"

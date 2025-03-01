@@ -1,22 +1,31 @@
-import { useState } from "react";
-import Footer from "./components/layout/Footer";
-import Header from "./components/layout/Header";
-import Hero from "./components/layout/Hero";
-import About from "./components/layout/About";
-import Uiux from "./components/layout/Uiux";
-import Portfolio from "./components/layout/Portfolio";
-
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ThemeProvider } from "./components/theme-provider";
+import Layout from "./components/layout/Index";
+import Hero from "./pages/Hero";
+import Contactpage from "./pages/Contactpage";
+import { imageKit } from "./lib/utils";
+import { IKContext } from "imagekitio-react";
+import AboutPage from "./pages/AboutPage";
+import PortfolioPage from "./pages/PortfolioPage";
 function App() {
-  const [count, setCount] = useState(0);
   return (
-    <>
-      <Header />
-      <Hero />
-      <About />
-      <Uiux />
-      <Portfolio /> 
-      <Footer />
-    </>
+    <IKContext
+      urlEndpoint={imageKit.endpoint}
+      publicKey={imageKit.publicKey}
+    >
+      <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Hero />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/contact" element={<Contactpage />} />
+              <Route path="/portfolio" element={<PortfolioPage />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </ThemeProvider>
+    </IKContext>
   );
 }
 

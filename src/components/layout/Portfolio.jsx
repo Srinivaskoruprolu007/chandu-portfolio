@@ -48,23 +48,6 @@ const Portfolio = () => {
         <h1 className="text-3xl font-semibold text-center sm:text-left">
           EXPLORE MY PHOTOGRAPHY & <br /> EDITING WORK
         </h1>
-        <div className="mt-6 sm:mt-0">
-          <Carousel
-            plugins={[plugin.current]}
-            className="w-[300px] sm:w-[400px]"
-          >
-            <CarouselContent>
-              {works.map((work, index) => (
-                <CarouselItem
-                  key={index}
-                  className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/6"
-                >
-                  <WorkItem work={work} />
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
-        </div>
       </div>
 
       {/* Mobile Portfolio Section */}

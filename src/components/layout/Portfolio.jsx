@@ -7,9 +7,9 @@ import { IKImage } from "imagekitio-react";
 import { MoveRight } from "lucide-react";
 
 const categories = [
-  { title: "Photography", image: "cp/p9.JPG", route: "/portrait" },
-  { title: "Macro", image: "cp/m2.JPG", route: "/macro" },
-  { title: "Videos", image: "cp/l18.JPG", route: "/videos" },
+  { title: "Photography", image: "/cp/p9.JPG", route: "/portrait" },
+  { title: "Macro", image: "/cp/m2.JPG", route: "/macro" },
+  { title: "Videos", image: "/cp/l18.JPG", route: "/videos" },
 ];
 
 const Portfolio = () => {

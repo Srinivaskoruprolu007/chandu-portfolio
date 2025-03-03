@@ -180,7 +180,7 @@ const PortfolioPage = () => {
 
   // Background image style
   const heroBackgroundStyle = {
-    backgroundImage: `url(${imageKit.endpoint}/cp/PBG.JPG)`,
+    backgroundImage: `url(${imageKit.endpoint}cp/PBG.JPG)`,
     backgroundSize: "cover",
     backgroundPosition: "center",
   };

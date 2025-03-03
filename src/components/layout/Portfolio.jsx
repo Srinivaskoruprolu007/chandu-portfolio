@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { motion } from "framer-motion";
-import { HeroPageImages } from "../../data/works";
 import { IKImage } from "imagekitio-react";
 import { MoveRight } from "lucide-react";
 

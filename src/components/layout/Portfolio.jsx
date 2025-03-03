@@ -8,9 +8,9 @@ import { IKImage } from "imagekitio-react";
 import { MoveRight } from "lucide-react";
 
 const categories = [
-  { title: "Photography", image: HeroPageImages[0].src, route: "/portrait" },
-  { title: "Macro", image: HeroPageImages[1].src, route: "/macro" },
-  { title: "Videos", image: HeroPageImages[2].src, route: "/videos" },
+  { title: "Photography", image: "cp/p9.JPG", route: "/portrait" },
+  { title: "Macro", image: "cp/m2.JPG", route: "/macro" },
+  { title: "Videos", image: "cp/l18.JPG", route: "/videos" },
 ];
 
 const Portfolio = () => {
@@ -59,7 +59,7 @@ const Portfolio = () => {
             whileHover={{ scale: 1.03 }}
             className="relative bg-gray-900 dark:bg-gray-100 rounded-lg border-2 border-gray-700 dark:border-gray-300 shadow-lg overflow-hidden hover:border-[#4A2CED] dark:hover:border-[#6B4EF7] transition-all"
           >
-            <img src={category.image} alt={category.title} className="w-full h-80 object-cover" />
+            <IKImage path={category.image} alt={category.title} className="w-full h-80 object-cover" />
             <div className="absolute bottom-0 left-0 right-0 bg-black/60 dark:bg-white/60 p-4 flex justify-between items-center backdrop-blur-sm">
               <p className="text-white dark:text-black text-sm font-semibold">{category.title}</p>
               <button

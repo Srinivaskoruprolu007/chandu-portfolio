@@ -11,6 +11,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { HeroPageImages } from "@/data/works.js";
 import { IKImage } from "imagekitio-react";
 import { imageKit } from "@/lib/utils.js";
+import image from "../assets/Image.jpg";
 
 const videoData = [
   {
@@ -193,7 +194,7 @@ const PortfolioPage = () => {
   // Memoize background style
   const heroBackgroundStyle = useMemo(
     () => ({
-      backgroundImage: `url(${imageKit.endpoint}cp/PBG.JPG)`,
+      backgroundImage: `url(${image})`,
       backgroundSize: "cover",
       backgroundPosition: "center",
     }),

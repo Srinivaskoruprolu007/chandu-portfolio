@@ -7,7 +7,6 @@ import { IKContext } from "imagekitio-react";
 import AboutPage from "./pages/AboutPage";
 import PortfolioPage from "./pages/PortfolioPage";
 import ImageDetailPage from "./pages/ImageDetailPage";
-import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const testEndpoint = "https://ik.imagekit.io/6xgpee1zp";
@@ -16,7 +15,6 @@ function App() {
     <IKContext urlEndpoint={testEndpoint} publicKey={testPublicKey}>
       <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
         <BrowserRouter>
-          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<Hero />} />

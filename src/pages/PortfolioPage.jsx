@@ -1,5 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight, PlayCircle, Volume2, VolumeX } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  PlayCircle,
+  Volume2,
+  VolumeX,
+} from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import { HeroPageImages } from "@/data/works.js";
 import { IKContext, IKImage } from "imagekitio-react";
@@ -155,10 +161,22 @@ const PortfolioPage = () => {
   const [photosRef, photosApi] = useEmblaCarousel(carouselOptions);
   const [videosRef, videosApi] = useEmblaCarousel(carouselOptions);
 
-  const handlePhotoNext = useCallback(() => photosApi?.scrollNext(), [photosApi]);
-  const handlePhotoPrev = useCallback(() => photosApi?.scrollPrev(), [photosApi]);
-  const handleVideoNext = useCallback(() => videosApi?.scrollNext(), [videosApi]);
-  const handleVideoPrev = useCallback(() => videosApi?.scrollPrev(), [videosApi]);
+  const handlePhotoNext = useCallback(
+    () => photosApi?.scrollNext(),
+    [photosApi]
+  );
+  const handlePhotoPrev = useCallback(
+    () => photosApi?.scrollPrev(),
+    [photosApi]
+  );
+  const handleVideoNext = useCallback(
+    () => videosApi?.scrollNext(),
+    [videosApi]
+  );
+  const handleVideoPrev = useCallback(
+    () => videosApi?.scrollPrev(),
+    [videosApi]
+  );
 
   // Background image style
   const heroBackgroundStyle = {
@@ -193,17 +211,20 @@ const PortfolioPage = () => {
           </p>
         </div>
       </div>
-      
+
       {/* Photos Section */}
       <div className="bg-[#111111] dark:bg-[#f5f5f5] p-2 mt-2">
         <div className="max-w-7xl px-2">
-          <SectionHeading 
-            title="Photos" 
+          <SectionHeading
+            title="Photos"
             navigationControls={
-              <CarouselNavigation onPrev={handlePhotoPrev} onNext={handlePhotoNext} />
-            } 
+              <CarouselNavigation
+                onPrev={handlePhotoPrev}
+                onNext={handlePhotoNext}
+              />
+            }
           />
-          
+
           <div className="overflow-hidden dark:bg-white mb-2" ref={photosRef}>
             <div className="flex">
               <IKContext urlEndpoint={imageKit.endpoint}>
@@ -226,17 +247,20 @@ const PortfolioPage = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Video Section */}
       <div className="bg-[#111111] dark:bg-[#f5f5f5] m-0">
         <div className="max-w-7xl px-2">
-          <SectionHeading 
-            title="Videos" 
+          <SectionHeading
+            title="Videos"
             navigationControls={
-              <CarouselNavigation onPrev={handleVideoPrev} onNext={handleVideoNext} />
-            } 
+              <CarouselNavigation
+                onPrev={handleVideoPrev}
+                onNext={handleVideoNext}
+              />
+            }
           />
-          
+
           <div className="overflow-hidden dark:bg-white" ref={videosRef}>
             <div className="flex -ml-3 sm:-ml-4">
               {videos.map((video) => (

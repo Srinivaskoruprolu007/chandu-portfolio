@@ -12,6 +12,7 @@ import Autoplay from "embla-carousel-autoplay";
 import { Button } from "../components/ui/button";
 import { MoveUpRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { ImageLoader } from "@/components/ui/image-loader";
 
 // Lazy load components
 const About = lazy(() => import("../components/layout/About"));
@@ -22,17 +23,6 @@ const Portfolio = lazy(() => import("../components/layout/Portfolio"));
 const LoadingFallback = () => (
   <div className="w-full h-[300px] flex items-center justify-center">
     <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div>
-  </div>
-);
-
-const ImageLoader = () => (
-  <div className="absolute inset-0 bg-black/20 dark:bg-white/20 backdrop-blur-sm flex items-center justify-center">
-    <div className="flex flex-col items-center gap-4">
-      <div className="animate-spin rounded-full h-12 w-12 border-4 border-primary border-t-transparent"></div>
-      <p className="text-white dark:text-black text-sm font-medium">
-        Loading images...
-      </p>
-    </div>
   </div>
 );
 
@@ -85,7 +75,11 @@ const Hero = () => {
                   key={index}
                   className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/6 flex items-center m-2"
                 >
-                  <img src={icon || ""} alt="icon" className="w-8 h-8 dark:invert" />
+                  <img
+                    src={icon || ""}
+                    alt="icon"
+                    className="w-8 h-8 dark:invert"
+                  />
                   <span className="p-2 uppercase text-sm truncate">{work}</span>
                 </CarouselItem>
               ))}
@@ -95,7 +89,11 @@ const Hero = () => {
 
         {/* Images Grid with Loader */}
         <div className="relative mx-auto w-[358px] h-[223px] laptop:w-[1280px] laptop:h-[424px] desktop:w-[1596px] desktop:h-[512px]">
-          {imagesLoaded < totalImages && <ImageLoader />}
+          {imagesLoaded < totalImages && (
+            <div className="absolute inset-0 z-10">
+              <ImageLoader className="w-full h-full" />
+            </div>
+          )}
 
           {/* Left top image */}
           <div className="absolute w-[116.64px] h-[154.18px] left-0 top-0 laptop:w-[417.04px] laptop:h-[293.16px] laptop:left-0 laptop:top-0 desktop:left-[0%] desktop:right-[67.42%] desktop:top-[0%] desktop:bottom-[30.86%]">

@@ -1,6 +1,6 @@
 import React, { useRef, lazy, Suspense, useState } from "react";
 import { works } from "../data/works";
-import { IKImage, IKContext } from "imagekitio-react";
+import { IKImage } from "imagekitio-react";
 import "../styles/Hero.css";
 import icon from "../assets/Icon.png";
 import {
@@ -85,7 +85,7 @@ const Hero = () => {
                   key={index}
                   className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/6 flex items-center m-2"
                 >
-                  <img src={icon} alt="icon" className="w-8 h-8 dark:invert" />
+                  <img src={icon || ""} alt="icon" className="w-8 h-8 dark:invert" />
                   <span className="p-2 uppercase text-sm truncate">{work}</span>
                 </CarouselItem>
               ))}

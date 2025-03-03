@@ -35,7 +35,7 @@ const Portfolio = () => {
               <CarouselItem key={index} className="flex-shrink-0 w-full">
                 <div className="relative bg-gray-900 dark:bg-gray-100 rounded-lg border border-gray-700 dark:border-gray-300 shadow-lg overflow-hidden">
                   <IKImage
-                    src={category.image}
+                    path={category.image}
                     alt={category.title}
                     className="w-full h-72 object-cover"
                     loading="lazy"

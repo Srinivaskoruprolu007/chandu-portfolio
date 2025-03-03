@@ -5,6 +5,8 @@ import Autoplay from "embla-carousel-autoplay";
 import { motion } from "framer-motion";
 import { IKImage } from "imagekitio-react";
 import { MoveRight } from "lucide-react";
+import defaultIcon from "@/assets/Icon.png";
+import { works } from "@/data/works";
 
 const categories = [
   { title: "Photography", image: "/cp/p9.JPG", route: "/portrait" },
@@ -12,8 +14,27 @@ const categories = [
   { title: "Videos", image: "/cp/l18.JPG", route: "/videos" },
 ];
 
+const WorkItem = React.memo(({ work }) => {
+  return (
+    <div className="flex items-center m-2">
+      <img
+        src={defaultIcon}
+        alt="work icon"
+        className="w-8 h-8 dark:invert"
+        onError={(e) => {
+          e.currentTarget.style.display = "none";
+        }}
+      />
+      <span className="p-2 uppercase text-sm truncate">{work}</span>
+    </div>
+  );
+});
+
 const Portfolio = () => {
   const navigate = useNavigate();
+  const plugin = React.useRef(
+    Autoplay({ delay: 2000, stopOnInteraction: true })
+  );
 
   return (
     <motion.div
@@ -28,6 +49,8 @@ const Portfolio = () => {
           EXPLORE MY PHOTOGRAPHY & <br /> EDITING WORK
         </h1>
       </div>
+
+      {/* Mobile Portfolio Section */}
       <div className="block sm:hidden w-full mt-6">
         <Carousel plugins={[Autoplay({ delay: 3000 })]} className="w-full">
           <CarouselContent className="flex gap-4">
@@ -39,6 +62,14 @@ const Portfolio = () => {
                     alt={category.title}
                     className="w-full h-72 object-cover"
                     loading="lazy"
+                    lqip={{ active: true, quality: 20 }}
+                    transformation={[
+                      {
+                        width: 400,
+                        quality: 75,
+                        format: "webp",
+                      },
+                    ]}
                   />
                   <div className="absolute bottom-0 left-0 right-0 bg-black/60 dark:bg-white/60 p-4 flex justify-between items-center backdrop-blur-sm">
                     <p className="text-white dark:text-black text-sm font-semibold">
@@ -58,6 +89,8 @@ const Portfolio = () => {
           </CarouselContent>
         </Carousel>
       </div>
+
+      {/* Desktop Portfolio Grid */}
       <motion.div className="hidden sm:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mt-6">
         {categories.map((category, index) => (
           <motion.div
@@ -69,6 +102,15 @@ const Portfolio = () => {
               path={category.image}
               alt={category.title}
               className="w-full h-80 object-cover"
+              loading="lazy"
+              lqip={{ active: true, quality: 20 }}
+              transformation={[
+                {
+                  width: 600,
+                  quality: 75,
+                  format: "webp",
+                },
+              ]}
             />
             <div className="absolute bottom-0 left-0 right-0 bg-black/60 dark:bg-white/60 p-4 flex justify-between items-center backdrop-blur-sm">
               <p className="text-white dark:text-black text-sm font-semibold">
@@ -89,4 +131,4 @@ const Portfolio = () => {
   );
 };
 
-export default Portfolio;
+export default React.memo(Portfolio);

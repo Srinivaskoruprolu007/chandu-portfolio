@@ -57,8 +57,8 @@ export default {
         manrope: ["Manrope", "sans-serif"],
       },
       screens: {
-        laptop: "1280px",
-        desktop: "1596px",
+        laptop: "1024px",
+        desktop: "1280px",
       },
     },
   },

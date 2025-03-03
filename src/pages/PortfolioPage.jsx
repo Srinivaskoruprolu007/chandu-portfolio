@@ -10,7 +10,8 @@ import useEmblaCarousel from "embla-carousel-react";
 import { HeroPageImages } from "@/data/works.js";
 import { IKImage } from "imagekitio-react";
 import { imageKit } from "@/lib/utils.js";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useMemo } from "react";
+import { useImageLoad } from "@/hooks/useImageLoad";
 
 // Sample video data
 const videos = [
@@ -52,7 +53,7 @@ const videos = [
   },
 ];
 
-const VideoCard = ({ video }) => {
+const VideoCard = React.memo(({ video }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
 
@@ -114,10 +115,10 @@ const VideoCard = ({ video }) => {
       </div>
     </div>
   );
-};
+});
 
 // Reusable carousel navigation component
-const CarouselNavigation = ({ onPrev, onNext }) => (
+const CarouselNavigation = React.memo(({ onPrev, onNext }) => (
   <div className="flex justify-center items-center p-[2px] gap-2 w-[110px] h-[55px] bg-[#070708] dark:bg-white border border-[#1C1C21] dark:border-gray-200 rounded-full">
     <Button
       onClick={onPrev}
@@ -134,32 +135,39 @@ const CarouselNavigation = ({ onPrev, onNext }) => (
       <ChevronRight className="w-[30px] h-[30px] text-white dark:text-black stroke-2" />
     </Button>
   </div>
-);
+));
 
 // Reusable section heading component
-const SectionHeading = ({ title, navigationControls }) => (
+const SectionHeading = React.memo(({ title, navigationControls }) => (
   <div className="flex justify-between items-center mb-2">
     <h1 className="text-[#e0e0e0] dark:text-[#1a1a1a] text-xl uppercase sm:text-2xl font-bold tracking-tight border-b border-[#1C1C21] dark:border-gray-200">
       {title}
     </h1>
     {navigationControls}
   </div>
-);
+));
 
 const PortfolioPage = () => {
-  const carouselOptions = {
-    align: "start",
-    loop: true,
-    slidesToScroll: 1,
-    dragFree: true,
-    breakpoints: {
-      "(min-width: 768px)": { slidesPerView: 2 },
-      "(min-width: 1024px)": { slidesPerView: 3 },
-    },
-  };
+  const carouselOptions = useMemo(
+    () => ({
+      align: "start",
+      loop: true,
+      slidesToScroll: 1,
+      dragFree: true,
+      breakpoints: {
+        "(min-width: 768px)": { slidesPerView: 2 },
+        "(min-width: 1024px)": { slidesPerView: 3 },
+      },
+    }),
+    []
+  );
 
   const [photosRef, photosApi] = useEmblaCarousel(carouselOptions);
   const [videosRef, videosApi] = useEmblaCarousel(carouselOptions);
+
+  const { handleImageLoad } = useImageLoad(
+    HeroPageImages.map((img) => img.src)
+  );
 
   const handlePhotoNext = useCallback(
     () => photosApi?.scrollNext(),
@@ -237,6 +245,7 @@ const PortfolioPage = () => {
                       path={image.src}
                       loading="lazy"
                       className="w-full h-[300px] sm:h-[300px] lg:h-[350px] object-cover rounded-xl transition-all duration-300 group-hover:scale-105"
+                      onLoad={() => handleImageLoad(image.src)}
                     />
                   </div>
                 </div>
@@ -277,4 +286,4 @@ const PortfolioPage = () => {
   );
 };
 
-export default PortfolioPage;
+export default React.memo(PortfolioPage);

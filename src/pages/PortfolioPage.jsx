@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import { HeroPageImages } from "@/data/works.js";
-import { IKContext, IKImage } from "imagekitio-react";
+import { IKImage } from "imagekitio-react";
 import { imageKit } from "@/lib/utils.js";
 import { useState, useCallback } from "react";
 
@@ -17,7 +17,7 @@ const videos = [
   {
     id: 1,
     title: "Nature Documentary",
-    thumbnail: `${imageKit.endpoint}/cp/Portfolio_Image.jpg`,
+    thumbnail: `${imageKit.endpoint}/cp/videos/all%20videos/MEDI%20CARE%20hospital.mp4`,
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
   },
   {
@@ -63,8 +63,8 @@ const VideoCard = ({ video }) => {
     <div className="relative group rounded-xl overflow-hidden bg-[#1C1C21] dark:bg-gray-100">
       {!isPlaying ? (
         <>
-          <img
-            src={video.thumbnail}
+          <IKImage
+            path={video.thumbnail}
             alt={video.title}
             className="w-full h-[250px] object-cover"
           />
@@ -227,22 +227,20 @@ const PortfolioPage = () => {
 
           <div className="overflow-hidden dark:bg-white mb-2" ref={photosRef}>
             <div className="flex">
-              <IKContext urlEndpoint={imageKit.endpoint}>
                 {HeroPageImages.map((image) => (
                   <div
                     key={image.id}
                     className="flex-[0_0_calc(100%-12px)] sm:flex-[0_0_calc(50%-30px)] lg:flex-[0_0_calc(33.33%-40px)] min-w-0 pl-3 sm:pl-4"
                   >
-                    <div className="relative aspect-square group">
+                    <div className="relative aspect-auto group">
                       <IKImage
-                        src={image.src}
+                        path={image.src}
                         loading="lazy"
-                        className="w-full h-[200px] sm:h-[250px] lg:h-[250px] object-cover rounded-xl transition-all duration-300 group-hover:scale-105"
+                        className="w-full h-[250px] sm:h-[300px] lg:h-[350px] object-cover rounded-xl transition-all duration-300 group-hover:scale-105"
                       />
                     </div>
                   </div>
                 ))}
-              </IKContext>
             </div>
           </div>
         </div>

@@ -34,9 +34,16 @@ const Portfolio = () => {
             {categories.map((category, index) => (
               <CarouselItem key={index} className="flex-shrink-0 w-full">
                 <div className="relative bg-gray-900 dark:bg-gray-100 rounded-lg border border-gray-700 dark:border-gray-300 shadow-lg overflow-hidden">
-                  <IKImage src={category.image} alt={category.title} className="w-full h-72 object-cover" loading="lazy" />
+                  <IKImage
+                    src={category.image}
+                    alt={category.title}
+                    className="w-full h-72 object-cover"
+                    loading="lazy"
+                  />
                   <div className="absolute bottom-0 left-0 right-0 bg-black/60 dark:bg-white/60 p-4 flex justify-between items-center backdrop-blur-sm">
-                    <p className="text-white dark:text-black text-sm font-semibold">{category.title}</p>
+                    <p className="text-white dark:text-black text-sm font-semibold">
+                      {category.title}
+                    </p>
                     <button
                       onClick={() => navigate(category.route)}
                       className="text-[#4A2CED] dark:text-[#6B4EF7] flex items-center gap-2 hover:text-[#3a22b3] dark:hover:text-[#5437D6] transition duration-300"
@@ -58,9 +65,15 @@ const Portfolio = () => {
             whileHover={{ scale: 1.03 }}
             className="relative bg-gray-900 dark:bg-gray-100 rounded-lg border-2 border-gray-700 dark:border-gray-300 shadow-lg overflow-hidden hover:border-[#4A2CED] dark:hover:border-[#6B4EF7] transition-all"
           >
-            <IKImage path={category.image} alt={category.title} className="w-full h-80 object-cover" />
+            <IKImage
+              path={category.image}
+              alt={category.title}
+              className="w-full h-80 object-cover"
+            />
             <div className="absolute bottom-0 left-0 right-0 bg-black/60 dark:bg-white/60 p-4 flex justify-between items-center backdrop-blur-sm">
-              <p className="text-white dark:text-black text-sm font-semibold">{category.title}</p>
+              <p className="text-white dark:text-black text-sm font-semibold">
+                {category.title}
+              </p>
               <button
                 onClick={() => navigate(category.route)}
                 className="text-[#4A2CED] dark:text-[#6B4EF7] flex items-center gap-2 hover:text-[#3a22b3] dark:hover:text-[#5437D6] transition duration-300"

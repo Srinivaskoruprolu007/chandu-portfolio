@@ -227,20 +227,20 @@ const PortfolioPage = () => {
 
           <div className="overflow-hidden dark:bg-white mb-2" ref={photosRef}>
             <div className="flex">
-                {HeroPageImages.map((image) => (
-                  <div
-                    key={image.id}
-                    className="flex-[0_0_calc(100%-12px)] sm:flex-[0_0_calc(50%-30px)] lg:flex-[0_0_calc(33.33%-40px)] min-w-0 pl-3 sm:pl-4"
-                  >
-                    <div className="relative aspect-auto group">
-                      <IKImage
-                        path={image.src}
-                        loading="lazy"
-                        className="w-full h-[250px] sm:h-[300px] lg:h-[350px] object-cover rounded-xl transition-all duration-300 group-hover:scale-105"
-                      />
-                    </div>
+              {HeroPageImages.map((image) => (
+                <div
+                  key={image.id}
+                  className="flex-[0_0_calc(100%-12px)] sm:flex-[0_0_calc(50%-30px)] lg:flex-[0_0_calc(33.33%-40px)] min-w-0 pl-3 sm:pl-4"
+                >
+                  <div className="relative aspect-auto group">
+                    <IKImage
+                      path={image.src}
+                      loading="lazy"
+                      className="w-full h-[250px] sm:h-[300px] lg:h-[350px] object-cover rounded-xl transition-all duration-300 group-hover:scale-105"
+                    />
                   </div>
-                ))}
+                </div>
+              ))}
             </div>
           </div>
         </div>

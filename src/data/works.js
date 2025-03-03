@@ -122,7 +122,7 @@ export const HeroPageImages = [
     src: `/cp/p12.JPG`,
   },
   {
-    id: 13, 
+    id: 13,
     src: `/cp/p13.JPG`,
   },
   {
@@ -153,5 +153,43 @@ export const HeroPageImages = [
     id: 20,
     src: `/cp/p20.JPG`,
   },
-  
+];
+
+export const MacroImages = [
+  {
+    id: 1,
+    src: "/cp/m1.JPG",
+  },
+  {
+    id: 2,
+    src: "/cp/m2.JPG",
+  },
+  {
+    id: 3,
+    src: "/cp/m3.JPG",
+  },
+  {
+    id: 4,
+    src: "/cp/m4.JPG",
+  },
+  {
+    id: 5,
+    src: "/cp/m5.JPG",
+  },
+  {
+    id: 6,
+    src: "/cp/m6.JPG",
+  },
+  {
+    id: 7,
+    src: "/cp/m7.JPG",
+  },
+  {
+    id: 8,
+    src: "/cp/m8.JPG",
+  },
+  {
+    id: 9,
+    src: "/cp/m9.JPG",
+  },
 ];

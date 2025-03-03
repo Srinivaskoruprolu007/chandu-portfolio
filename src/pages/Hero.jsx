@@ -100,7 +100,7 @@ const Hero = () => {
           {/* Left top image */}
           <div className="absolute w-[116.64px] h-[154.18px] left-0 top-0 laptop:w-[417.04px] laptop:h-[293.16px] laptop:left-0 laptop:top-0 desktop:left-[0%] desktop:right-[67.42%] desktop:top-[0%] desktop:bottom-[30.86%]">
             <IKImage
-              path="/cp/p4.jpg"
+              path="/cp/p4.JPG"
               loading="lazy"
               lqip={{ active: true, quality: 20 }}
               onLoad={handleImageLoad}

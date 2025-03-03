@@ -236,7 +236,7 @@ const PortfolioPage = () => {
                     <IKImage
                       path={image.src}
                       loading="lazy"
-                      className="w-full h-[250px] sm:h-[300px] lg:h-[350px] object-cover rounded-xl transition-all duration-300 group-hover:scale-105"
+                      className="w-full h-[300px] sm:h-[300px] lg:h-[350px] object-cover rounded-xl transition-all duration-300 group-hover:scale-105"
                     />
                   </div>
                 </div>

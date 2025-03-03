@@ -23,7 +23,6 @@ const Portfolio = () => {
       transition={{ duration: 0.5 }}
       className="p-6 sm:p-12 bg-black dark:bg-white text-white dark:text-black border-t border-gray-800 dark:border-gray-200"
     >
-      <h1 className="text-xl text-gray-500 dark:text-gray-600">Portfolio</h1>
       <div className="flex flex-col sm:flex-row justify-between items-center">
         <h1 className="text-3xl font-semibold text-center sm:text-left">
           EXPLORE MY PHOTOGRAPHY & <br /> EDITING WORK

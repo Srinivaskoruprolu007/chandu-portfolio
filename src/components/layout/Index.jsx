@@ -1,21 +1,19 @@
-import React from 'react'
-
-import Header from './Header'
-import { Outlet } from 'react-router-dom'
-import Footer from './Footer'
+import ScrollToTop from "../ScrollToTop";
+import Header from "./Header";
+import { Outlet } from "react-router-dom";
+import Footer from "./Footer";
 
 const Layout = () => {
   return (
-    <div>
-      <>
-       <Header/>
-       <main>
+    <>
+      <ScrollToTop />
+      <Header />
+      <main>
         <Outlet />
-       </main>
-       <Footer/>
-      </>
-    </div>
-  )
-}
+      </main>
+      <Footer />
+    </>
+  );
+};
 
-export default Layout
+export default Layout;

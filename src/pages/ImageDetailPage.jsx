@@ -1,34 +1,49 @@
 import React from "react";
+import { useMemo } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { IKImage } from "imagekitio-react";
-import { HeroPageImages } from "@/data/works";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { HeroPageImages, MacroImages } from "@/data/works";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import { useImageLoad } from "@/hooks/useImageLoad";
 
 const ImageDetailPage = () => {
   const { category } = useParams();
   const navigate = useNavigate();
 
-  const imageDetails = {
-    portrait: {
-      title: "Photography",
-      description: "Showcasing stunning images that capture moments, emotions, and artistry.",
-      images: [HeroPageImages[0].src, HeroPageImages[3]?.src, HeroPageImages[0]?.src, HeroPageImages[3]?.src, HeroPageImages[0]?.src, HeroPageImages[3]?.src],
-    },
-    macro: {
-      title: "Macro Photography",
-      description: "Exploring intricate details of small subjects with precision and depth.",
-      images: [HeroPageImages[1].src, HeroPageImages[4]?.src, HeroPageImages[1]?.src, HeroPageImages[4]?.src, HeroPageImages[1]?.src, HeroPageImages[4]?.src],
-    },
-    videos: {
-      title: "Videos",
-      description: "Bringing stories to life through dynamic visuals and compelling narratives.",
-      images: [HeroPageImages[2].src, HeroPageImages[5]?.src, HeroPageImages[2]?.src, HeroPageImages[5]?.src, HeroPageImages[2]?.src, HeroPageImages[5]?.src],
-    },
-  };
+  const imageDetails = useMemo(
+    () => ({
+      portrait: {
+        title: "Photography",
+        description:
+          "Showcasing stunning images that capture moments, emotions, and artistry.",
+        images: HeroPageImages.slice(0, 6).map((img) => img.src),
+      },
+      macro: {
+        title: "Macro Photography",
+        description:
+          "Exploring intricate details of small subjects with precision and depth.",
+        images: MacroImages?.map((img) => img.src) || [],
+      },
+      videos: {
+        title: "Videos",
+        description:
+          "Bringing stories to life through dynamic visuals and compelling narratives.",
+        images: HeroPageImages.slice(6, 12).map((img) => img.src),
+      },
+    }),
+    []
+  );
 
   const details = imageDetails[category] || imageDetails.portrait;
+  const { isLoading, handleImageLoad } = useImageLoad(details.images);
+
+  const carouselPlugin = useMemo(() => Autoplay({ delay: 3000 }), []);
 
   return (
     <motion.div
@@ -37,19 +52,30 @@ const ImageDetailPage = () => {
       transition={{ duration: 0.5 }}
       className="p-4 sm:p-12 bg-black dark:bg-white text-white dark:text-black min-h-screen flex flex-col items-center justify-start"
     >
-      <h1 className="text-2xl sm:text-3xl font-semibold mb-4">{details.title}</h1>
+      <h1 className="text-2xl sm:text-3xl font-semibold mb-4">
+        {details.title}
+      </h1>
 
       {/* Mobile Carousel */}
       <div className="sm:hidden w-full max-w-md mb-3">
-        <Carousel plugins={[Autoplay({ delay: 3000 })]} className="w-full">
+        <Carousel plugins={[carouselPlugin]} className="w-full">
           <CarouselContent className="flex">
             {details.images.map((image, index) => (
               <CarouselItem key={index} className="w-full flex justify-center">
                 <IKImage
-                  src={image}
+                  path={image}
                   alt={`${details.title} ${index + 1}`}
                   className="w-full h-auto mt-12 object-cover rounded-lg shadow-lg"
                   loading="lazy"
+                  onLoad={() => handleImageLoad(image)}
+                  lqip={{ active: true, quality: 20 }}
+                  transformation={[
+                    {
+                      width: 400,
+                      quality: 75,
+                      format: "webp",
+                    },
+                  ]}
                 />
               </CarouselItem>
             ))}
@@ -62,10 +88,19 @@ const ImageDetailPage = () => {
         {details.images.map((image, index) => (
           <div key={index} className="p-1 sm:p-2">
             <IKImage
-              src={image}
+              path={image}
               alt={`${details.title} ${index + 1}`}
               className="w-full h-36 sm:h-56 object-cover rounded-lg shadow-lg transition-transform duration-300 hover:scale-105"
               loading="lazy"
+              onLoad={() => handleImageLoad(image)}
+              lqip={{ active: true, quality: 20 }}
+              transformation={[
+                {
+                  width: 600,
+                  quality: 75,
+                  format: "webp",
+                },
+              ]}
             />
           </div>
         ))}
@@ -85,4 +120,4 @@ const ImageDetailPage = () => {
   );
 };
 
-export default ImageDetailPage;
+export default React.memo(ImageDetailPage);

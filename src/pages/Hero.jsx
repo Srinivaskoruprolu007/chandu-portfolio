@@ -65,21 +65,21 @@ const Hero = () => {
         </div>
 
         {/* Carousel Section */}
-        <div className="transition-transform duration-300">
+        <div className="transition-transform duration-300 mb-4">
           <Carousel
             plugins={[plugin.current]}
-            className="border-b border-gray-800 dark:border-gray-200 w-full overflow-hidden"
+            className="flex justify-center items-center border-b border-gray-800 dark:border-gray-200 w-full"
           >
-            <CarouselContent className="flex gap-3 sm:gap-8 items-center">
+            <CarouselContent className="flex gap-2 sm:gap-20 items-center">
               {works.map((work, index) => (
                 <CarouselItem
                   key={index}
-                  className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/6 flex items-center m-2"
+                  className="basis-1/2 flex items-center m-2 md:basis-1/6"
                 >
                   <img
-                    src={icon || ""}
+                    src={icon}
                     alt="icon"
-                    className="w-8 h-8 dark:invert"
+                    className="size-10 bg-inherit dark:invert"
                   />
                   <span className="p-2 uppercase text-sm truncate">{work}</span>
                 </CarouselItem>

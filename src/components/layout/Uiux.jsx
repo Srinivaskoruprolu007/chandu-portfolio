@@ -2,14 +2,20 @@ import { MoveUpRight } from "lucide-react";
 import React from "react";
 import { Button } from "../ui/button";
 import figma from "../../assets/UIUX.png";
+import { useNavigate } from "react-router-dom";
+
 
 const Uiux = () => {
+  const navigate = useNavigate();
   return (
     <div className="bg-black dark:bg-white text-white dark:text-black p-6 sm:p-12 w-full flex flex-col justify-center">
       {/* Title and Button (Aligned Properly) */}
       <div className="flex items-center justify-between w-full">
         <h1 className="text-xl sm:text-2xl text-left">UI/UX DESIGNER</h1>
-        <Button className="bg-[#4A2CED] dark:bg-[#6B4EF7] rounded-full py-3 px-6 sm:py-4 sm:px-8 shadow-lg hover:bg-[#3920B5] dark:hover:bg-[#5437D6] transition-colors">
+        <Button
+          onClick={() => navigate("/uiux")}
+          className="bg-[#4A2CED] dark:bg-[#6B4EF7] rounded-full py-3 px-6 sm:py-4 sm:px-8 shadow-lg hover:bg-[#3920B5] dark:hover:bg-[#5437D6] transition-colors"
+        >
           <MoveUpRight size={24} className="text-white" />
         </Button>
       </div>

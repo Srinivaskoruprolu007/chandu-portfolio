@@ -58,13 +58,13 @@ const About = () => {
               <div>
                 <h3 className="text-lg font-semibold">Email</h3>
                 <p className="text-sm text-gray-300 dark:text-gray-700">
-                  chandu@example.com
+                chandu9kilaparthi@gmail.com
                 </p>
               </div>
               <div>
                 <h3 className="text-lg font-semibold">Mobile</h3>
                 <p className="text-sm text-gray-300 dark:text-gray-700">
-                  +91 98765 43210
+                  +91 96403 66123
                 </p>
               </div>
             </div>

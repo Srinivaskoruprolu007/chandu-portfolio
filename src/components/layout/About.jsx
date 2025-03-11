@@ -98,7 +98,7 @@ const About = () => {
               </div>
 
               <button className="bg-gray-800 dark:bg-gray-200 flex items-center gap-2 text-white dark:text-black px-4 py-2 rounded hover:bg-gray-900 dark:hover:bg-gray-300 transition duration-300">
-                View Resume
+                <a href="https://drive.google.com/file/d/1aFciM5oqBO1sov6lF-P5knPaQfasTwP7/view?usp=drivesdk">View Resume</a>
               </button>
             </div>
           </div>

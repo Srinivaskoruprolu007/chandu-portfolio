@@ -7,6 +7,7 @@ import { IKContext } from "imagekitio-react";
 import AboutPage from "./pages/AboutPage";
 import PortfolioPage from "./pages/PortfolioPage";
 import ImageDetailPage from "./pages/ImageDetailPage";
+import UiuxPage from "./pages/UiuxPage";
 
 function App() {
   const testEndpoint = "https://ik.imagekit.io/6xgpee1zp";
@@ -22,6 +23,7 @@ function App() {
               <Route path="/contact" element={<Contactpage />} />
               <Route path="/portfolio" element={<PortfolioPage />} />
               <Route path="/:category" element={<ImageDetailPage />} />
+              <Route path="/uiux" element = {<UiuxPage />} /> 
             </Route>
           </Routes>
         </BrowserRouter>

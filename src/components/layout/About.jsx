@@ -5,8 +5,10 @@ import twitter from "../../assets/twitter.png";
 import instagram from "../../assets/Instagram.png";
 import { socialLinks } from "../../data/works";
 import { IKImage } from "imagekitio-react";
+import { useNavigate } from "react-router-dom";
 
 const About = () => {
+  const navigate = useNavigate();
   return (
     <div className="p-6 sm:p-12 bg-black dark:bg-white text-white dark:text-black min-h-screen flex flex-col justify-center border-t border-gray-800 dark:border-gray-200">
       <h1 className="text-xl text-gray-500 dark:text-gray-600">About</h1>
@@ -16,7 +18,10 @@ const About = () => {
         <h1 className="text-3xl font-semibold text-center sm:text-left">
           I'M CHANDU
         </h1>
-        <button className="bg-gray-800 dark:bg-gray-200 flex items-center gap-2 text-white dark:text-black px-6 py-3 rounded-lg hover:bg-gray-900 dark:hover:bg-gray-300 transition duration-300">
+        <button
+          onClick={() => navigate("/about")}
+          className="bg-gray-800 dark:bg-gray-200 flex items-center gap-2 text-white dark:text-black px-6 py-3 rounded-lg hover:bg-gray-900 dark:hover:bg-gray-300 transition duration-300"
+        >
           <p>Know more</p>
           <MoveRight size={18} />
         </button>
@@ -58,7 +63,7 @@ const About = () => {
               <div>
                 <h3 className="text-lg font-semibold">Email</h3>
                 <p className="text-sm text-gray-300 dark:text-gray-700">
-                chandu9kilaparthi@gmail.com
+                  chandu9kilaparthi@gmail.com
                 </p>
               </div>
               <div>
@@ -98,7 +103,9 @@ const About = () => {
               </div>
 
               <button className="bg-gray-800 dark:bg-gray-200 flex items-center gap-2 text-white dark:text-black px-4 py-2 rounded hover:bg-gray-900 dark:hover:bg-gray-300 transition duration-300">
-                <a href="https://drive.google.com/file/d/1aFciM5oqBO1sov6lF-P5knPaQfasTwP7/view?usp=drivesdk">View Resume</a>
+                <a href="https://drive.google.com/file/d/1aFciM5oqBO1sov6lF-P5knPaQfasTwP7/view?usp=drivesdk">
+                  View Resume
+                </a>
               </button>
             </div>
           </div>

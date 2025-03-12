@@ -15,7 +15,7 @@ const AboutPage = () => {
           className="w-full rounded-none"
         />
         <h1 className="text-center text-sm font-bold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white z-10 bg-black py-10 rounded-lg w-full hidden md:block md:text-2xl ">
-          I AM A PASSIONATE CREATIVE PHOTOGRAPHER AND VEDIO EDITOR
+          I AM A PASSIONATE CREATIVE PHOTOGRAPHER AND VIDEO EDITOR
         </h1>
       </div>
       <div className="text-gray-400 w-full bg-black rounded-lg flex flex-col items-start space-y-2 pb-4">

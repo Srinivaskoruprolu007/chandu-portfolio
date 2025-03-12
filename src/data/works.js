@@ -3,7 +3,7 @@ export const works = [
   "PHOTOGRAPHY",
   "VIDEO EDITOR",
   "UI & UX DESIGNER",
-  "TUMBNAIL EDITOR",
+  "THUMBNAIL EDITOR",
   "Landscape Photography",
   "PRODUCT Photography",
   "Portrait  Photography",
@@ -50,15 +50,15 @@ export const footerNavLinks = [
     links: [
       {
         label: "Photography",
-        href: "#",
+        href: "/portfolio",
       },
       {
         label: "Video Editing",
-        href: "#",
+        href: "/portfolio",
       },
       {
         label: "UI & UX Design",
-        href: "#",
+        href: "/uiux",
       },
     ],
   },
